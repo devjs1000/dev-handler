@@ -5,7 +5,7 @@ let mode = {
 }
 
 
-const handleThis = async ({ fn, msg, args, onSuccess, onFailed, expectedOnPass, expectedOnFailed, name, returnOnFailed, returnOnPass, type = 'fn', errorCode = 500, senders = {} }) => {
+const handleThis = async ({ fn, msg, args = [], onSuccess, onFailed, expectedOnPass, expectedOnFailed, name, returnOnFailed, returnOnPass, type = 'fn', errorCode = 500, senders = {} }) => {
     let expected = expectedOnPass === undefined || expectedOnPass
     try {
         let response;

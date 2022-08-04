@@ -1,0 +1,25 @@
+{
+  "name": "dev-handler",
+  "version": "1.0.0",
+  "description": "dev handler is a package which can handle errors and to the tests at the same time and you can make consoles on and off anytime",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devjs1000/Nodejs-Contoller-Handler-.git"
+  },
+  "keywords": [
+    "devjs1000",
+    "dev-handler",
+    "handlers",
+    "try-catch"
+  ],
+  "author": "devjs1000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devjs1000/Nodejs-Contoller-Handler-/issues"
+  },
+  "homepage": "https://github.com/devjs1000/Nodejs-Contoller-Handler-#readme"
+}
