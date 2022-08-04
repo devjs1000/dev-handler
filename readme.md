@@ -16,3 +16,16 @@
     }
   })
   ```
+  ```py
+ ||===========================================================================================||
+ || OPTION    | USE-CASE                                        | TYPE         | CONDITION    ||
+ ||===========================================================================================||
+ || name      | for identification on errors and ohter purposes | ``string``   | api and fn   ||
+ || msg       | message shown on error                          | ``string``   | api and fn   ||
+ || type      | fn or api | fn is default                       | ``string``   | api or fn    ||
+ || errorCode | api error code send to user                     | ``number``   | api          ||
+ || senders   | request and response method of api              | ``methods``  | api          ||
+ || fn        | main function                                   | ``function`` | fn and api   ||
+ ||===========================================================================================||
+  ```
+ 
