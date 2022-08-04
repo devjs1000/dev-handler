@@ -1,18 +1,18 @@
- 
- 
- 
-  EXAMPLE
+
+##  EXAMPLE
+ ```js
  handleThis({
-    name: 'create buy',
-    msg: 'failed to create buy entry',
+    name: 'create user',
+    msg: 'failed to create user',
     type: 'api',
     errorCode: 500,
     senders: { req, res },
     fn: async () => {
-      const { party, hostId, stock, quantity, liftingDays, starred, remark, confirmDate, startDate, price, group, stockDateOffset, } = req.body;
-      const buy = new Buy({ party, broker: hostId, stock, initialQuantity: quantity, liftedQuantity: 0, liftingDays, starred, remark, confirmDate, startDate, price, stockDateOffset });
-      await buy.save();
-      req.io.emit("refreshBuy");
-      res.send(struct(true, " Success ", {}));
+      const { userName, password } = req.body;
+      const usr = new User({ userName, password });
+      await usr.save();
+      let data={}
+      res.send({status:true, msg: "Success" , data ));
     }
   })
+  ```
