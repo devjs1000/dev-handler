@@ -14,18 +14,25 @@
       let data={}
       res.send({status:true, msg: "Success" , data ));
     }
+    
   })
   ```
   ```py
- ||===========================================================================================||
- || OPTION    | USE-CASE                                        | TYPE         | CONDITION    ||
- ||===========================================================================================||
- || name      | for identification on errors and ohter purposes | ``string``   | api and fn   ||
- || msg       | message shown on error                          | ``string``   | api and fn   ||
- || type      | fn or api | fn is default                       | ``string``   | api or fn    ||
- || errorCode | api error code send to user                     | ``number``   | api          ||
- || senders   | request and response method of api              | ``methods``  | api          ||
- || fn        | main function                                   | ``function`` | fn and api   ||
- ||===========================================================================================||
+ ||=======================================================================================================||
+ || OPTION           | USE-CASE                                             | TYPE         | CONDITION    ||
+ ||=======================================================================================================||
+ || name             | for identification on errors and ohter purposes      | ``string``   | api and fn   ||
+ || msg              | message shown on error                               | ``string``   | api and fn   ||
+ || type             | fn or api | fn is default                            | ``string``   | api or fn    ||
+ || errorCode        | api error code send to user                          | ``number``   | api          ||
+ || senders          | request and response method of api                   | ``methods``  | api          ||
+ || fn               | main function                                        | ``function`` | fn and api   ||
+ || reaturnOnPass    | this value will returned in success
+ || returnOnFailed   | this value will returned on failure
+ || onSuccess        | this function will call on success
+ || onFailed         | this function will call on failure
+ || expectedOnPass   | this is the value you expected return value on success
+ || expectedOnFailed | this is the value you expected return value on failure 
+ ||=======================================================================================================||
   ```
  
