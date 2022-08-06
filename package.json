@@ -1,6 +1,6 @@
 {
   "name": "dev-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dev handler is a package which can handle errors and to the tests at the same time and you can make consoles on and off anytime",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/devjs1000/Nodejs-Contoller-Handler-/issues"
   },
-  "homepage": "https://github.com/devjs1000/Nodejs-Contoller-Handler-#readme"
+  "homepage": "https://github.com/devjs1000/Nodejs-Contoller-Handler-#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
 }

@@ -4,10 +4,10 @@ let production = process.env.PRODUCTION;
 
 const debugMode = typeof production == 'string' ? JSON.parse(production) : true;
 
-const handleThis = async ({ log = false, fn, errMsg, onSuccess, onFailed, expectedOnPass, expectedOnFailed, name, returnOnFailed, returnOnPass, type = 'fn', errorCode = 500, senders = {} }) => {
+const handleThis = async ({ log = false, fn, errMsg, onSuccess, onFailed, expectedOnPass, expectedOnFailed, name, returnOnFailed, returnOnPass }) => {
     let expected = expectedOnPass === undefined || expectedOnPass
     try {
-        let response=await fn();
+        let response = await fn()
         if (debugMode || log) {
             if (expected) {
                 if (response === expectedOnPass) {
@@ -31,9 +31,6 @@ const handleThis = async ({ log = false, fn, errMsg, onSuccess, onFailed, expect
             }
             console.error(errMsg)
             console.log(err)
-        }
-        if (type === 'api') {
-            senders.res.status(errorCode).send(struct(false, errMsg, err))
         }
         return returnOnFailed
     }

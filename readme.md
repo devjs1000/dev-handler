@@ -1,38 +1,82 @@
+## EXAMPLE
 
-##  EXAMPLE
- ```js
- handleThis({
-    name: 'create user',
-    msg: 'failed to create user',
-    type: 'api',
-    errorCode: 500,
-    senders: { req, res },
-    fn: async () => {
-      const { userName, password } = req.body;
-      const usr = new User({ userName, password });
-      await usr.save();
-      let data={}
-      res.send({status:true, msg: "Success" , data ));
-    }
-    
-  })
-  ```
-  ```py
- ||=======================================================================================================||
- || OPTION           | USE-CASE                                             | TYPE         | CONDITION    ||
- ||=======================================================================================================||
- || name             | for identification on errors and ohter purposes      | ``string``   | api and fn   ||
- || msg              | message shown on error                               | ``string``   | api and fn   ||
- || type             | fn or api | fn is default                            | ``string``   | api or fn    ||
- || errorCode        | api error code send to user                          | ``number``   | api          ||
- || senders          | request and response method of api                   | ``methods``  | api          ||
- || fn               | main function                                        | ``function`` | fn and api   ||
- || reaturnOnPass    | this value will returned in success
- || returnOnFailed   | this value will returned on failure
- || onSuccess        | this function will call on success
- || onFailed         | this function will call on failure
- || expectedOnPass   | this is the value you expected return value on success
- || expectedOnFailed | this is the value you expected return value on failure 
- ||=======================================================================================================||
-  ```
- 
+```js
+handleThis({
+  name: "create user",
+  errMsg: "failed to create user",
+  type: "api",
+  errorCode: 500,
+  senders: { req, res },
+  expectedOnPass: "ok",
+  expectedOnFailed: 0,
+  onSuccess: () => {
+    console.log("yeah");
+  },
+  onFailed: () => {
+    console.log("ops");
+  },
+  fn: async () => {
+    const { userName, password } = req.body;
+    const usr = new User({ userName, password });
+    await usr.save();
+    let data = {};
+    res.send({ status: true, msg: "Success", data });
+    return "ok";
+  },
+});
+```
+
+##OPTIONS
+
+```
+name : function name or use;
+```
+
+```
+fn : main async fn;
+```
+
+```
+type : api or fn;
+note : default is fn;
+```
+
+```
+errMsg : message on error;
+note: this is required;
+```
+
+```
+senders : {req, res};
+note: only required in apis;
+```
+
+```
+returnOnPass : value will be returned on pass;
+note: this value  will be returned on pass of your fn;
+```
+
+```
+returnOnFailed : value will be return on fail;
+note: this value  will be returned on fail of your fn;
+```
+
+```
+onSuccess : this function will be called on success;
+note: this is optional;
+```
+
+```
+onFailed : this function will be called on failure;
+note: this is optional;
+```
+
+```
+expectedOnPass: expected return value on success from your main fn;
+note: this is optional but recommended;
+```
+
+```
+expectedOnFailed: expected return value on failure from your main fn;
+note: this is optional but recommended;
+```
